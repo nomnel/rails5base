@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman'
   gem 'listen', '~> 3.0.5'
   gem 'view_source_map'
   gem 'web-console'

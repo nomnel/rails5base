@@ -12,16 +12,22 @@ RUN apt-get update -qq && \
   rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /var/lib/mysql && touch /var/lib/mysql/mysql.sock
-ADD ./containers/db/my.cnf /etc/
+COPY ./containers/db/my.cnf /etc/
 
 WORKDIR /tmp
-ADD Gemfile Gemfile
-ADD Gemfile.lock Gemfile.lock
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
 RUN bundle install
 
 ENV app_dir /myapp
 RUN mkdir $app_dir
+
+WORKDIR $app_dir/client
+COPY client/package.json .
+COPY client/yarn.lock .
+RUN yarn install --prefer-offline
+
 WORKDIR $app_dir
-ADD . $app_dir
+COPY . $app_dir
 
 EXPOSE 3000

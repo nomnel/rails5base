@@ -16,6 +16,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+/app/assets/javascripts/webpack
+/client/node_modules
 /containers_data/db/*
 !/containers_data/db/.keep
 /containers_data/nginx/*

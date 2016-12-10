@@ -2,7 +2,7 @@ version: '2'
 services:
   app:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec foreman start
     ports:
       - '3000:3000'
     environment:
@@ -13,6 +13,7 @@ services:
       - db
     volumes:
       - ./:/myapp
+      - /myapp/client/node_modules
     links:
       - db
   nginx:
