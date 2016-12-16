@@ -5,7 +5,6 @@ ruby '2.3.2'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'active_decorator'
-gem 'coffee-rails', '~> 4.2'
 gem 'enumerize'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
