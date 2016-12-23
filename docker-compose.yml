@@ -13,7 +13,8 @@ services:
       - db
     volumes:
       - ./:/myapp
-      - /myapp/client/node_modules
+      - bundle:/bundle
+      - node_modules:/myapp/client/node_modules
     links:
       - db
   nginx:
@@ -35,3 +36,6 @@ services:
       - '3306:3306'
     volumes:
       - ./containers_data/db:/var/lib/mysql
+volumes:
+  bundle:
+  node_modules:
