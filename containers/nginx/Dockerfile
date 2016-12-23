@@ -1,4 +1,4 @@
-FROM nginx:1.10.1
+FROM nginx:1.11.7
 
 COPY generate_certificate.sh /etc/nginx/generate_certificate.sh
 WORKDIR /etc/nginx
